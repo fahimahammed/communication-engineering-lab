@@ -4,53 +4,53 @@ close all;
 clc;
 
 % Set the parameters for the modulation
-carrier_amp = 1;       % Carrier signal amplitude
-message_amp = 1;       % Message signal amplitude
-carrier_frq = 15;      % Carrier signal frequency
-message_frq = 1;       % Message signal frequency
-modulation_index = 10; % Modulation index
+carrierAmp = 1;          % Carrier signal amplitude
+messageAmp = 1;          % Message signal amplitude
+carrierFrq = 15;         % Carrier signal frequency
+messageFrq = 1;          % Message signal frequency
+modulationIndex = 10;    % Modulation index
 
 % Set the total time and time vector
-Total_time = 5;          % Total time duration
-t = 0 : 0.001 : Total_time;  % Time vector
+totalTime = 5;                  % Total time duration
+t = 0 : 0.001 : totalTime;      % Time vector
 
 % Generate the message signal
-message_signal = message_amp * cos(2 * pi * message_frq * t);
+messageSignal = messageAmp * cos(2 * pi * messageFrq * t);
 
 % Generate the carrier signal
-carrier_signal = carrier_amp * sin(2 * pi * carrier_frq * t);
+carrierSignal = carrierAmp * sin(2 * pi * carrierFrq * t);
 
 % Perform frequency modulation
-modulated_signal = carrier_amp .* sin(2*pi*carrier_frq*t + (modulation_index .* sin(2*pi*message_frq*t)));
+modulatedSignal = carrierAmp .* sin(2*pi*carrierFrq*t + (modulationIndex .* sin(2*pi*messageFrq*t)));
 
 % Plot the carrier signal
 subplot(411);
-plot(t, carrier_signal);
+plot(t, carrierSignal);
 title('Carrier Signal');
 
 % Plot the message signal
 subplot(412);
-plot(t, message_signal);
+plot(t, messageSignal);
 title('Message Signal');
-line ([0, Total_time], [0 0], "linestyle", "--", "color", "r");
+line ([0, totalTime], [0 0], "linestyle", "--", "color", "r");
 
 % Plot the frequency modulated signal
 subplot(413);
-plot(t, modulated_signal);
+plot(t, modulatedSignal);
 title('Frequency Modulated Signal');
-line ([0, Total_time], [0 0], "linestyle", "--", "color", "r");
+line ([0, totalTime], [0 0], "linestyle", "--", "color", "r");
 
 % Perform demodulation using frequency discrimination
 subplot(414);
-demodulated_signal = fmDemod(modulated_signal);
-plot(t(1:end-1), demodulated_signal);
+demodulatedSignal = fmDemod(modulatedSignal);
+plot(t(1:end-1), demodulatedSignal);
 title('Demodulated Signal');
-line ([0, Total_time], [0 0], "linestyle", "--", "color", "r");
+line ([0, totalTime], [0 0], "linestyle", "--", "color", "r");
 
 % Frequency demodulation function
-function m = fmDemod(s)
-    x = diff(s);                  % Calculate the derivative of the modulated signal
-    y = abs(x);                   % Take the absolute value of the derivative
-    [b, a] = butter(10, 0.056);   % Design a low-pass filter
-    m = filter(b, a, y);          % Apply the filter to obtain the demodulated signal
+function demodulatedSignal = fmDemod(modulatedSignal)
+    derivative = diff(modulatedSignal);                   % Calculate the derivative of the modulated signal
+    absoluteDerivative = abs(derivative);                  % Take the absolute value of the derivative
+    [b, a] = butter(10, 0.056);                            % Design a low-pass filter
+    demodulatedSignal = filter(b, a, absoluteDerivative);  % Apply the filter to obtain the demodulated signal
 end
