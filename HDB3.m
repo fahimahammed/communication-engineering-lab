@@ -4,7 +4,8 @@ clc;    %clear command line
 clear all;  %clear variables
 close all;  %clear figures
 
-bits = [1 1 0 0 0 0 1 0 0 0 0 0 0 0 0];     %Book example fig: 4.20
+%bits = [1 1 0 0 0 0 1 0 0 0 0 0 0 0 0];
+bits = [1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0];
 %Modulation :
 
 bitRate = 1;

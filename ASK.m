@@ -47,7 +47,7 @@ set(ax2, 'YLim', get(ax1, 'YLim'));
 set(ax2, 'XTick', [bit_duration/2: bit_duration: Total_time]);
 set(ax2, 'YTick', [-amplitude-2: 2: amplitude+2]);
 set(ax2, 'XTickLabel', bits);
-set(ax2, 'XLabel', 'Data bits');
+%set(ax2, 'XLabel', 'Data bits');
 
 
 

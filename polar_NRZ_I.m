@@ -56,3 +56,5 @@ for i = 1:length(modulation)
 end
 
 disp(demodulation);
+
+% 1 = state change ( stat at -5 ) ; 0 = no change 

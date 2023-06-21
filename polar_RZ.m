@@ -2,8 +2,8 @@ clc;    %clear command line
 clear all;  %clear variables
 close all;  %clear figures 
 
-bits = [1 0 1 0 0 0 1 0 1 1 0 1 0 0];
-
+%bits = [0 1 0 1 0 0 0 1 0 1 1 0 1 0 0];
+bits = [1 0 0 1 0 1 1]
 %Modulation :
 
 bitRate = 1;
@@ -57,3 +57,7 @@ for i = 1:length(modulation)
 end
 
 disp(demodulation);
+
+% 1 = 1/2 up + 1/2 zero; 0= 1/2 low + 1/2 zero
+% 0 > negitive to zero
+% 1 > positive to zero

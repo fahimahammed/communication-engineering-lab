@@ -47,3 +47,5 @@ for i = 1:length(modulation)
 end
 
 disp(demodulation);
+
+% 1 = up; 0 = zero

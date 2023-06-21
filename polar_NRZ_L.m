@@ -2,7 +2,7 @@ clc;    %clear command line
 clear all;  %clear variables
 close all;  %clear figures 
 
-bits = [1 0 1 0 0 0 1 0 1 1 0 1 0 0];
+bits = [1 0 1 1 1 0 0 1 0 1 1 0];
 
 %Modulation :
 
@@ -49,3 +49,5 @@ for i = 1:length(modulation)
 end
 
 disp(demodulation);
+
+% 1  = 5; 0 = -5

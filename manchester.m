@@ -2,7 +2,8 @@ clc;    %clear command line
 clear all;  %clear variables
 close all;  %clear figures 
 
-bits = [1 0 1 0 0 0 1 0 1 1 0 1 0 0 1];
+%bits = [1 0 1 0 0 0 1 0 1 1 0 1 0 0 1];
+bits = [1 0 1 1 0 0 1]
 
 %Modulation :
 
@@ -54,3 +55,7 @@ for i = 1:length(modulation)
 end
 
 disp(demodulation);
+
+% 1 = 1/2(-5) + 1/2(5); 0 = 1/2(5) + 1/2(-5) ( IEEE 802.3 ) (Tomas)
+% Dr. Thomas== 0 = negitive to positive; 1 = positive to negitive
+% IEEE 0 = positive to negative; 1 = negitive to positive

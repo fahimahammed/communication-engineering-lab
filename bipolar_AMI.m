@@ -2,7 +2,8 @@ clc;    %clear command line
 clear all;  %clear variables
 close all;  %clear figures 
 
-bits = [1 0 1 0 0 0 1 0 1 1 0 1 0 0 1];
+%bits = [1 0 1 0 0 0 1 0 1 1 0 1 0 0 1];
+bits = [0 1 1 0 0 1 0 0 1];
 
 %Modulation :
 
@@ -58,3 +59,6 @@ for i = 1:length(modulation)
 end
 
 disp(demodulation);
+
+% alternate mark inversion
+% zero = 0; 1 = alternate

@@ -61,7 +61,7 @@ set(ax2, 'YLim', get(ax1, 'YLim'));
 set(ax2, 'XTick', [bit_duration/2: bit_duration: Total_time]);
 set(ax2, 'YTick', [-voltage-2: 2: voltage+2]);
 set(ax2, 'XTickLabel', bits);
-set(ax2, 'XLabel', 'Data bits');
+%set(ax2, 'XLabel', 'Data bits');
 
 
 
@@ -95,3 +95,7 @@ disp(bits);
 
 disp("Demodulation:");
 disp(demodulated);
+
+% 000VB0VB
+% V= violation > same as last non-zero level
+% B = Bipolar > Opposite to last non zero level

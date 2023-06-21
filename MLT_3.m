@@ -1,5 +1,5 @@
-%input_bit = [0 1 0 1 1 0 1 1];
-input_bit = [1 1 1 1 1 1 1 1 0 0 0 0 0 0 1];
+input_bit = [0 1 0 1 1 0 1 1];
+%input_bit = [1 1 1 1 1 1 1 1 0 0 0 0 0 0 1];
 bit_duration = 1000;
 time = 0:1:bit_duration*length(input_bit);
 
@@ -33,6 +33,7 @@ end
 plot(time, output_data, 'LineWidth', 3);
 xlim([0 length(time)]);
 ylim([-1.5 1.5]);
+grid on;
 
 
 % demodulation
@@ -51,3 +52,8 @@ for i=2:bit_duration:length(output_data)
   end
 end
 demodulated_data
+
+% multi line transition
+% 0 > no transition ( same as previous ) ; 
+% 1 = opposite of non-zero (current level = 0 )
+% 1 = 0 ( current level not zero )
